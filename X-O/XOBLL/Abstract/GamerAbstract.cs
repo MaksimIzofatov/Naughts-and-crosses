@@ -107,10 +107,5 @@ namespace X_O.XOBLL.Abstract
             }
             _newGame = true;
         }
-
-
-
-
-
     }
 }

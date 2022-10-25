@@ -47,8 +47,6 @@ namespace X_O.XOBLL.Game
                     nextStep++;
                     var win = CheckWinStep('x');
 
-                    
-
                     if (win != null)
                     {
                         var res = Variable(0, win);
@@ -64,13 +62,8 @@ namespace X_O.XOBLL.Game
                     if (res1.Item1 != null)
                         return res1;
                     else
-                        return Variable(index, _steps);
-
-
-                    
+                        return Variable(index, _steps); 
                 }
-
-
             }
             else
             {
@@ -105,8 +98,7 @@ namespace X_O.XOBLL.Game
                                 isWork = false;
                         }
                         
-                        return Variable(index, _stepsWin);  
-                        
+                        return Variable(index, _stepsWin);    
                     }
                     else
                     {
@@ -156,7 +148,6 @@ namespace X_O.XOBLL.Game
                         return res1;
                     else
                         Variable(index, _steps);
-
                 }
             }
             return (_symbols[0], 0);
@@ -185,8 +176,6 @@ namespace X_O.XOBLL.Game
                     }
                 }
             }
-
-
 
             return null;
         }

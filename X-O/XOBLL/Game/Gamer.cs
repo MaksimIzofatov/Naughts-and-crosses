@@ -12,7 +12,5 @@ namespace X_O.XOBLL.Game
         public Gamer(int queue) : base(queue)
         {
         }
-
-        
     }
 }

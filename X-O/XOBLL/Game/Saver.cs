@@ -13,8 +13,6 @@ namespace X_O.XOBLL.Game
         private FileInfo _file = new FileInfo("result.txt");
         public void Save(GameResult result, GameMode mode)
         {
-            
-
             using (StreamWriter sw = _file.AppendText())
             {
                 switch (result)
@@ -63,14 +61,11 @@ namespace X_O.XOBLL.Game
                 return new int[] { winHard, loseHard, drawHard };
             else
                 return new int[] { winEasy + winHard, loseEasy + loseHard, drawEasy + drawHard };
-
         }
 
         public void Clear()
         {
             _file.Delete();
         }
-
-
     }
 }

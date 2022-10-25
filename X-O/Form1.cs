@@ -13,9 +13,9 @@ namespace X_O
         private ISaveAndLoadFile _saver;
         private GameMode _gameMode = GameMode.Hard;
         private Load _load = new Load();
+
         public Form1()
         {
-            
             InitializeComponent();
 
             _buttons = new Button[] { button1, button2, button3, button4, button5, button6, button7, button8, button9 };
@@ -33,7 +33,6 @@ namespace X_O
             {
                 MessageBox.Show("Ничья!");
                 _saver.Save(GameResult.Draw, _gameMode);
-                
             }
             else
             {
@@ -48,7 +47,6 @@ namespace X_O
                     MessageBox.Show("Вы проиграли!");
                     _saver.Save(GameResult.Lose, _gameMode);
                 }
-                
             }
 
             NewGame();
@@ -101,154 +99,60 @@ namespace X_O
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "")
-            {
-                button1.Text = _gamer.ClickButton(0).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-            }
-                
-
-
+            ButtonClick(0);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button2.Text == "")
-            {
-                button2.Text = _gamer.ClickButton(1).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-            }
-
-            
+            ButtonClick(1);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (button3.Text == "")
-            {
-                button3.Text = _gamer.ClickButton(2).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-            }
-            
+            ButtonClick(2);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (button4.Text == "")
-            {
-                button4.Text = _gamer.ClickButton(3).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-            }
-            
+            ButtonClick(3);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (button5.Text == "")
-            {
-                button5.Text = _gamer.ClickButton(4).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-            }
+            ButtonClick(4);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (button6.Text == "")
-            {
-                button6.Text = _gamer.ClickButton(5).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-
-            }
+            ButtonClick(5);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (button7.Text == "")
-            {
-                button7.Text = _gamer.ClickButton(6).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-
-
-            }
+            ButtonClick(6);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (button8.Text == "")
-            {
-                button8.Text = _gamer.ClickButton(7).ToString();
-                _gamer.Winner();
-                if (!_gamer.NewGameFlag)
-                {
-
-                    StepComp();
-                    _gamer.Winner();
-                }
-                
-            }
+            ButtonClick(7);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (button9.Text == "")
+            ButtonClick(8);
+        }
+
+        private void ButtonClick(int index)
+        {
+            if (_buttons[index].Text == "")
             {
-                button9.Text = _gamer.ClickButton(8).ToString();
+                _buttons[index].Text = _gamer.ClickButton(index).ToString();
                 _gamer.Winner();
                 if (!_gamer.NewGameFlag)
                 {
-
                     StepComp();
                     _gamer.Winner();
                 }
-
             }
         }
 
@@ -272,7 +176,6 @@ namespace X_O
         {
             var result = _saver.Load(GameMode.General);
             ShowResult(result, GameMode.General);
-            
         }
 
         private void EasyStatisticToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,8 +202,6 @@ namespace X_O
             _load.ShowResult(res, mode);
             if (_load.ShowDialog() == DialogResult.Abort)
                 (_saver as Saver).Clear();
-        }
-
-        
+        }      
     }
 }
